@@ -31,5 +31,10 @@ def genload():
     summary = s.split("- - - - - - - - - - - - - - - - - - - - - - - - -")
     output = summary[1]
     return output
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template('index.html')
+    
 if __name__ == "__main__":
     app.run(host = '0.0.0.0')
