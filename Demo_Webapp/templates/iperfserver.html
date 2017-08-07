@@ -1,0 +1,127 @@
+<html>
+<head>
+
+<script type='text/javascript' src='http://code.jquery.com/jquery.min.js'></script>
+<style>
+
+body{
+	background-color: #f2f2f2;
+}
+
+#myProgress {
+  width: 48.5%;
+  background-color: #ddd;
+  visibility: hidden;
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #545454;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
+#loader {
+  visibility: hidden;
+  position: relative;
+  left: 22%;
+  top: 15%;
+  border: 10px solid white;
+  border-radius: 50%;
+  border-top: 10px solid #c65030;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.centered{
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	margin-top: -200px;
+  	margin-left: -100px;
+}
+
+.shifted{
+	position: relative;
+	right: 25%;
+}
+
+input.MyButton {
+width: 300px;
+padding: 10px;
+cursor: pointer;
+font-weight: bold;
+font-size: 18px;
+font-family: "Yoga Sans Medium";
+background: #ffffff;
+color: #444;
+border: 2px solid #444;
+-moz-box-shadow:: 6px 6px 5px #999;
+-webkit-box-shadow:: 6px 6px 5px #999;
+box-shadow:: 6px 6px 5px #999;
+}
+
+input.MyButton:hover {
+color: #ffffff;
+background: #c65030;
+border: 1px solid #fff;
+-moz-box-shadow:: 5px 5px 4px #adadad;
+-webkit-box-shadow:: 5px 5px 4px #adadad;
+box-shadow:: 5px 5px 4px #adadad;
+}
+
+</style>
+</head>
+<body class = "centered">
+		<div id="loader"></div>
+		<img class = "shifted" src = "../static/DemoCloud.png" alt = "DemoDiagram">
+		<br>
+		<br>
+		<br>
+        <form><input class="MyButton" type="button" id = "disable"value="Generate Network Load" onclick= "window.location.href='./genload'; getElementById('loader').style.visibility = 'visible';this.value = 'Generating Network Load...'; this.style.background = '#c65030'; this.style.color = '#ffffff'; this.style.border = '1px solid #fff'; this.disabled = true;" />
+	<br>
+	<br>
+	<div id="myProgress">
+    		<div id="myBar">0%</div>
+  	</div>
+
+
+<script>
+  function move() {
+    var elem = document.getElementById("myBar");   
+    var width = 0;
+    var id = setInterval(frame,60000 );
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  }
+
+</script>
+
+
+<script>
+
+
+</script>
+
+</body>
